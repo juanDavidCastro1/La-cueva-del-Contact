@@ -10,7 +10,7 @@ if __name__ == "__main__":
     nombre = input("Ingrese su nombre de jugador: ")
 
     #Personaje
-    jugador = Jugador(nombre, 50)
+    jugador = Jugador(nombre)
 
     print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?:")
     
@@ -21,7 +21,8 @@ if __name__ == "__main__":
 
         #Pidiendo respuesta
         try:
-            respuesta = int(input("1.Atacar 2.Huir: "))
+            print(f"Jugador: {jugador.nombre} (Vida:{jugador.vida} - {jugador.vida_maxima})")
+            respuesta = int(input("-- 1.Atacar 2.Huir 3.Inventario: "))
         except:
             respuesta = 0
         
@@ -32,8 +33,12 @@ if __name__ == "__main__":
                 if duende.vida <= 0:
                     activo = False
             elif respuesta == 2:
-                if jugador.huir(duende.probabilidad_de_escape):
+                if jugador.huir(duende):
                     activo = False
+                else:
+                    duende.atacar(jugador)
+            elif respuesta ==3:
+                print("Inventario")
             else:
                 print("Respuesta no valida")
             

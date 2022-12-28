@@ -5,15 +5,25 @@ class Espada():
         self.daño_base = daño_base
 
 class Espada_de_hielo(Espada):
-    def __init__(self, nombre, daño_base):
+    def __init__(self, nombre, daño_base, movimiento):
         super().__init__(nombre, daño_base)
+        self.movimiento = movimiento
     
     def congelar(self):
         self.daño_base = self.daño_base + 20
-        return self.daño_base
+        return self.daño_base, self.movimiento
+
+class Espada_de_fuego(Espada):
+    def __init__(self, nombre, daño_base, movimiento):
+        super().__init__(nombre, daño_base)
+        self.movimiento = movimiento
+    
+    def quemar(self):
+        self.daño_base = self.daño_base + 20
+        return self.daño_base, self.movimiento
 
 
 #Espadas
-espada_de_hielo = Espada_de_hielo("Espada de hielo", 30)
-
-
+espada_basica = Espada("Espada basica", 20)
+espada_de_hielo = Espada_de_hielo("Espada de hielo", 20, "Congelar")
+espada_de_fuego = Espada_de_fuego("Espada de fuego", 40, "Quemar")

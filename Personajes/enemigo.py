@@ -12,7 +12,7 @@ class Enemigo():
     #Ataque del enemigo
     def atacar(self, jugador):
         jugador.vida = jugador.vida - self.ataque
-        return print(f"La vida restante de {jugador.nombre} es {jugador.vida}")
+        return print(f"La vida restante de {jugador.nombre} es {jugador.vida}\n")
 
     
 
