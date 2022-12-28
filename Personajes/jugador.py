@@ -3,10 +3,11 @@ import random
 
 #Clase del Jugador
 class Jugador():
-    def __init__(self, nombre):
+    def __init__(self, nombre, energia):
         self.nombre = nombre
         self.vida = 100
         self.ataque = 10
+        self.energia = energia
 
     #Ataque del jugador
     def atacar(self, enemigo, jugador):
@@ -14,7 +15,7 @@ class Jugador():
         probabilidad_ataque_enemigo = random.randint(1, enemigo.probabilidad_de_ataque)
 
         if probabilidad_ataque_jugador > probabilidad_ataque_enemigo:
-            enemigo.vida = enemigo.vida - self.ataque
+            enemigo.vida = enemigo.vida - self.ataque 
             return print(f"La vida restante del {enemigo.nombre} es {enemigo.vida}")
         else:
             print("Fallaste!!")
@@ -31,24 +32,3 @@ class Jugador():
         else:
             print(f"Tu probabilidad de escape es {probabilidad_jugador} y la del tu enemigo es {probabilidad_enemigo}. No puedes escapar!!")
             return False
-        
-        
-#Clase del Enemigo
-class Enemigo():
-    def __init__(self, nombre, vida, ataque, probabilidad_escape , probabilidad_ataque):
-        self.nombre = nombre
-        self.vida = vida
-        self.ataque = ataque
-        self.probabilidad_de_escape = probabilidad_escape
-        self.probabilidad_de_ataque = probabilidad_ataque
-    
-    #Ataque del enemigo
-    def atacar(self, jugador):
-        jugador.vida = jugador.vida - self.ataque
-        return print(f"La vida restante de {jugador.nombre} es {jugador.vida}")
-
-    
-
-
-#NPCS y Enemigos
-duende = Enemigo("Duende", 50, 6, 4, 5)

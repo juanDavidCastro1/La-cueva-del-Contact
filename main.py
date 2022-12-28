@@ -1,5 +1,6 @@
 #Importaciones
-from Personajes.clases import *
+from Personajes.enemigo import *
+from Personajes.jugador import *
 
     
 #Bucle principal
@@ -9,7 +10,7 @@ if __name__ == "__main__":
     nombre = input("Ingrese su nombre de jugador: ")
 
     #Personaje
-    jugador = Jugador(nombre)
+    jugador = Jugador(nombre, 50)
 
     print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?:")
     
