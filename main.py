@@ -12,7 +12,7 @@ if __name__ == "__main__":
     #Personaje
     jugador = Jugador(nombre)
 
-    print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?:")
+    print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?\n")
     
     activo = True
     
@@ -37,8 +37,8 @@ if __name__ == "__main__":
                     activo = False
                 else:
                     duende.atacar(jugador)
-            elif respuesta ==3:
-                print("Inventario")
+            elif respuesta == 3:
+                jugador.inventario()
             else:
                 print("Respuesta no valida")
             

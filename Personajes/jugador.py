@@ -37,14 +37,60 @@ class Jugador():
             print(f"El {enemigo.nombre} ataco!!")
             return False
     
-    def inventario():
+    def inventario(self):
         inventario = {
-            "armas": {
-                "espadas":{
-                    "espada_basica": espada_basica
-                }
-            },
-            "objetos":{
-
-            } 
+            "armas": [
+                espada_basica
+            ]
         }
+
+
+        activo = True
+
+        while activo:
+
+            print("\n--Inventario--")
+            print("1.Armas 2.Pociones 3.Salir")
+
+            try:
+                opcion = int(input("Eliga una opcion: "))
+            except:
+                opcion = 0
+
+            if type(opcion) == int:
+
+                #Armas
+                if opcion == 1:
+                    
+
+                    contador = 0
+
+                    for armas in inventario["armas"]:
+                        contador = contador + 1
+                        print(f"{contador}-{armas.nombre}")
+                    
+                    while True:
+                        try:
+                            arma_elegida = int(input("Eliga un arma: "))
+                        except:
+                            arma_elegida = str
+                        
+                        if type(arma_elegida) == int and arma_elegida <= contador:
+                            print("Numero")
+                            break
+                        else:
+                            print("Opcion no valida")
+                    
+
+                #Pociones
+                elif opcion == 2:
+                    print("Pociones")
+                
+                #Salir
+                elif opcion == 3:
+                    print("\n")
+                    activo = False
+                else:
+                    print("Opcion no valida")
+            else:
+                print("Opcion no valida")
