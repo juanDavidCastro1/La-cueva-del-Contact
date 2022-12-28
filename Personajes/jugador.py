@@ -1,6 +1,7 @@
 #Importaciones
 import random
 from Armas.espada import *
+from Objetos.pociones import *
 
 #Clase del Jugador
 class Jugador():
@@ -41,6 +42,9 @@ class Jugador():
         inventario = {
             "armas": [
                 espada_basica
+            ],
+            "pociones":[
+                pocima_basica
             ]
         }
 
@@ -84,7 +88,11 @@ class Jugador():
 
                 #Pociones
                 elif opcion == 2:
-                    print("Pociones")
+                    contador = 0
+
+                    for pociones in inventario["pociones"]:
+                        contador = contador + 1
+                        print(f"{contador}-{pociones.nombre}")
                 
                 #Salir
                 elif opcion == 3:
