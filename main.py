@@ -1,12 +1,12 @@
 #Importaciones
-from Personajes.enemigo import *
+from Personajes.enemigos import *
 from Personajes.jugador import *
 
     
 #Bucle principal
 if __name__ == "__main__":
 
-    print("Bienvenido a la mazmorra")
+    print("Bienvenido a la cueva del Contact")
     nombre = input("Ingrese su nombre de jugador: ")
 
     #Personaje
