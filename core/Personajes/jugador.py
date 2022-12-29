@@ -1,7 +1,7 @@
 #Importaciones
 import random
-from Armas.espada import *
-from Objetos.pociones import *
+from ..Armas.espada import *
+from ..Objetos.pociones import *
 
 #Clase del Jugador
 class Jugador():
