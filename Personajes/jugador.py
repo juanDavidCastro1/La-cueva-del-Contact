@@ -50,10 +50,10 @@ class Jugador():
     def inventario(self):
         inventario = {
             "armas": [
-                espada_basica
+                
             ],
             "pociones":[
-                
+
             ]
         }
 
@@ -81,33 +81,41 @@ class Jugador():
                     contador = 0
 
                     #Trayendo y mostrando armas del inventario
+                    armas = ""
                     for armas in inventario["armas"]:
                         contador = contador + 1
                         print(f"{contador}-{armas.nombre}")
 
-                    #Bucle secundario en el menu del inventario
-                    while True:
+                    if armas == "":
+                        print("No tiene armas equipadas")
+                    else:
+                        #Bucle secundario en el menu del inventario
+                        while True:
 
-                        #Elegiendo arma
-                        try:
-                            arma_elegida = int(input("Eliga un arma: "))
-                        except:
-                            arma_elegida = str
-                            
-                        if type(arma_elegida) == int and arma_elegida <= contador:
-                            self.arma_actual = armas
-                            break
-                        else:
-                            print("Opcion no valida")
+                            #Elegiendo arma
+                            try:
+                                arma_elegida = int(input("Eliga un arma: "))
+                            except:
+                                arma_elegida = str
+                                
+                            if type(arma_elegida) == int and arma_elegida <= contador:
+                                self.arma_actual = armas
+                                break
+                            else:
+                                print("Opcion no valida")
                     
 
                 #Pociones
                 elif opcion == 2:
                     contador = 0
+                    pociones = ""
 
                     for pociones in inventario["pociones"]:
                         contador = contador + 1
                         print(f"{contador}-{pociones.nombre}")
+                    
+                    if pociones == "":
+                        print("No tiene pociones")
                 
                 #Salir
                 elif opcion == 3:
