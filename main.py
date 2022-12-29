@@ -19,13 +19,14 @@ if __name__ == "__main__":
     #Bucle del menu de opciones
     while activo == True:
 
-        #Pidiendo respuesta
+        #Comprobando si tiene arma equipada
         try:
             if jugador.arma_actual == None:
                 arma = "No tiene arma equipada"
             else:
                 arma = jugador.arma_actual.nombre
             
+            #Pidiendo respuesta
             print(f"Jugador: {jugador.nombre} (Vida:{jugador.vida} - {jugador.vida_maxima} | Energia: {jugador.energia} - {jugador.energia_maxima} | Arma actaul: {arma})")
             respuesta = int(input("-- 1.Atacar 2.Huir 3.Inventario: "))
         except:

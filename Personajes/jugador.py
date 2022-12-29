@@ -16,9 +16,12 @@ class Jugador():
 
     #Ataque del jugador
     def atacar(self, enemigo, jugador):
+
+        #Calculando probabilidad de escape
         probabilidad_ataque_jugador = random.randint(1,10)
         probabilidad_ataque_enemigo = random.randint(1, enemigo.probabilidad_de_ataque)
 
+        #Conparando las probabilidades
         if probabilidad_ataque_jugador > probabilidad_ataque_enemigo:
             print("Atacaste!!")
             try:
@@ -43,6 +46,7 @@ class Jugador():
             print(f"El {enemigo.nombre} ataco!!")
             return False
     
+    #Inventario
     def inventario(self):
         inventario = {
             "armas": [
@@ -56,11 +60,13 @@ class Jugador():
 
         activo = True
 
+        #Bucle principal en el menu del inventario       
         while activo:
 
             print("\n--Inventario--")
             print("1.Armas 2.Pociones 3.Salir")
 
+            #Pidiendo opcion del inventario
             try:
                 opcion = int(input("Eliga una opcion: "))
             except:
@@ -74,11 +80,15 @@ class Jugador():
 
                     contador = 0
 
+                    #Trayendo y mostrando armas del inventario
                     for armas in inventario["armas"]:
                         contador = contador + 1
                         print(f"{contador}-{armas.nombre}")
-                
+
+                    #Bucle secundario en el menu del inventario
                     while True:
+
+                        #Elegiendo arma
                         try:
                             arma_elegida = int(input("Eliga un arma: "))
                         except:
