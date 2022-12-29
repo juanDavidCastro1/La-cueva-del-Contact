@@ -17,7 +17,7 @@ if __name__ == "__main__":
     activo = True
     
     #Bucle del menu de opciones
-    while activo == True:
+    while activo:
 
         activo = curso_del_juego(jugador)
 
