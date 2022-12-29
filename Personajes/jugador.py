@@ -14,6 +14,16 @@ class Jugador():
         self.energia_maxima = 50
         self.arma_actual = None
 
+        global inventario
+        inventario = {
+            "armas": [
+
+            ],
+            "pociones":[
+                
+            ]
+        }
+
     #Ataque del jugador
     def atacar(self, enemigo, jugador):
 
@@ -45,17 +55,9 @@ class Jugador():
             print(f"Esacape fallido!!")
             print(f"El {enemigo.nombre} ataco!!")
             return False
-    
-    #Inventario
-    def inventario(self):
-        inventario = {
-            "armas": [
-                
-            ],
-            "pociones":[
 
-            ]
-        }
+    #Inventario
+    def inventario(self, jugador):
 
 
         activo = True
@@ -87,7 +89,7 @@ class Jugador():
                         print(f"{contador}-{armas.nombre}")
 
                     if armas == "":
-                        print("No tiene armas equipadas")
+                        print("No tiene armas en el inventario")
                     else:
                         #Bucle secundario en el menu del inventario
                         while True:
@@ -115,7 +117,25 @@ class Jugador():
                         print(f"{contador}-{pociones.nombre}")
                     
                     if pociones == "":
-                        print("No tiene pociones")
+                        print("No tiene pociones en el inventario")
+                    else:
+                        #Bucle secundario en el menu del inventario
+                        while True:
+
+                            #Elegiendo arma
+                            try:
+                                pocion_elegida = int(input("Eliga una pocion: "))
+                            except:
+                                pocion_elegida = str
+                                
+                            if type(pocion_elegida) == int and pocion_elegida <= contador:
+                                print(inventario["pociones"])
+                                inventario["pociones"].pop(pocion_elegida - 1)
+                                print(inventario["pociones"])
+                                pociones.curar(jugador)
+                                break
+                            else:
+                                print("Opcion no valida")
                 
                 #Salir
                 elif opcion == 3:

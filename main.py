@@ -44,7 +44,7 @@ if __name__ == "__main__":
                 else:
                     duende.atacar(jugador)
             elif respuesta == 3:
-                jugador.inventario()
+                jugador.inventario(jugador)
             else:
                 print("Respuesta no valida")
             
