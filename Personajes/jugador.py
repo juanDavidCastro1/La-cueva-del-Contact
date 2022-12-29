@@ -11,6 +11,8 @@ class Jugador():
         self.vida_maxima = 100
         self.ataque = 10
         self.energia = 50
+        self.energia_maxima = 50
+        self.arma_actual = None
 
     #Ataque del jugador
     def atacar(self, enemigo, jugador):
@@ -19,7 +21,10 @@ class Jugador():
 
         if probabilidad_ataque_jugador > probabilidad_ataque_enemigo:
             print("Atacaste!!")
-            enemigo.vida = enemigo.vida - self.ataque 
+            try:
+                enemigo.vida = enemigo.vida - (self.ataque + self.arma_actual.daño_base)
+            except:
+                enemigo.vida = enemigo.vida - self.ataque 
             return print(f"La vida restante del {enemigo.nombre} es {enemigo.vida}\n")
         else:
             print("Fallaste!!")
@@ -44,7 +49,7 @@ class Jugador():
                 espada_basica
             ],
             "pociones":[
-                pocima_basica
+                
             ]
         }
 
@@ -72,15 +77,15 @@ class Jugador():
                     for armas in inventario["armas"]:
                         contador = contador + 1
                         print(f"{contador}-{armas.nombre}")
-                    
+                
                     while True:
                         try:
                             arma_elegida = int(input("Eliga un arma: "))
                         except:
                             arma_elegida = str
-                        
+                            
                         if type(arma_elegida) == int and arma_elegida <= contador:
-                            print("Numero")
+                            self.arma_actual = armas
                             break
                         else:
                             print("Opcion no valida")

@@ -21,7 +21,12 @@ if __name__ == "__main__":
 
         #Pidiendo respuesta
         try:
-            print(f"Jugador: {jugador.nombre} (Vida:{jugador.vida} - {jugador.vida_maxima})")
+            if jugador.arma_actual == None:
+                arma = "No tiene arma equipada"
+            else:
+                arma = jugador.arma_actual.nombre
+            
+            print(f"Jugador: {jugador.nombre} (Vida:{jugador.vida} - {jugador.vida_maxima} | Energia: {jugador.energia} - {jugador.energia_maxima} | Arma actaul: {arma})")
             respuesta = int(input("-- 1.Atacar 2.Huir 3.Inventario: "))
         except:
             respuesta = 0
