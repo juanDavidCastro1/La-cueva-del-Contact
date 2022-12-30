@@ -5,7 +5,19 @@ class Pocion():
         self.curacion = curacion
     
     def curar(self, jugador):
-        jugador.vida = jugador.vida + self.curacion
+
+        if jugador.vida < jugador.vida_maxima:
+            if jugador.vida + self.curacion < jugador.vida_maxima:
+                jugador.vida = jugador.vida + self.curacion
+            else:
+                jugador.vida = jugador.vida_maxima
+            print("Se ha curado")
+            return True
+        else:
+            print("Su vida esta llena")
+            return False
+
+        
     
 
 class Pocion_azul(Pocion):
@@ -16,4 +28,4 @@ class Pocion_azul(Pocion):
 
 #Pociones
 pocima_basica = Pocion("Pocion basica", 10, 20)
-pocion_azul = Pocion_azul("Pocion azul", 20, 15)
+pocion_azul = Pocion_azul("Pocion azul", 20, 25)

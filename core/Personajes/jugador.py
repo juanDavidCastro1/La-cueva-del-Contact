@@ -113,7 +113,7 @@ class Jugador():
 
                     for pociones in inventario["pociones"]:
                         contador = contador + 1
-                        print(f"{contador}-{pociones.nombre}")
+                        print(f"{contador}-{pociones.nombre} (coste: {pociones.precio}, curacion: {pociones.curacion})\n")
                     
                     if pociones == "":
                         print("No tiene pociones en el inventario")
@@ -123,15 +123,19 @@ class Jugador():
 
                             #Elegiendo arma
                             try:
+                                print(f"Para salir escriba: {contador + 1}")
                                 pocion_elegida = int(input("Eliga una pocion: "))
                             except:
                                 pocion_elegida = str
                                 
                             if type(pocion_elegida) == int and pocion_elegida <= contador:
-                                print(inventario["pociones"])
-                                inventario["pociones"].pop(pocion_elegida - 1)
-                                print(inventario["pociones"])
-                                pociones.curar(jugador)
+                                if pociones.curar(jugador) == True:
+                                    inventario["pociones"].pop(pocion_elegida - 1)
+                                else:
+                                    pass
+                                
+                                break
+                            elif pocion_elegida == contador + 1:
                                 break
                             else:
                                 print("Opcion no valida")
