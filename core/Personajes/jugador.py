@@ -44,7 +44,6 @@ class Jugador():
             print(f"El {enemigo.nombre} ataco!!")
             enemigo.atacar(jugador)
         
-    
     #Huir del jugador
     def huir(self, enemigo):
         probabilidad_jugador = random.randint(1,10)

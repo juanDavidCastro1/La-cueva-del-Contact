@@ -1,7 +1,6 @@
-from .Personajes.jugador import *
-from .Personajes.enemigos import *
 
-def batalla_jugado_enemigo(jugador, enemigo):
+
+def batalla_jugador_enemigo(jugador, enemigo):
     
     #Comprobando si tiene arma equipada
         try:

@@ -19,6 +19,5 @@ if __name__ == "__main__":
     
     #Bucle del menu de opciones
     while activo:
-
-        activo = batalla_jugado_enemigo(jugador, duende)
+        activo = batalla_jugador_enemigo(jugador, duende)
 
