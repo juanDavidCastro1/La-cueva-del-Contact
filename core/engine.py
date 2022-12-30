@@ -1,7 +1,7 @@
 from .Personajes.jugador import *
 from .Personajes.enemigos import *
 
-def cursor_del_juego(jugador):
+def batalla_jugado_enemigo(jugador, enemigo):
     
     #Comprobando si tiene arma equipada
         try:
@@ -19,16 +19,16 @@ def cursor_del_juego(jugador):
         #Comprobacion de respuesta
         if type(respuesta) == int:
             if respuesta == 1:
-                jugador.atacar(duende, jugador)
-                if duende.vida <= 0:
+                jugador.atacar(enemigo, jugador)
+                if enemigo.vida <= 0:
                     return False
                 else:
                     return True
             elif respuesta == 2:
-                if jugador.huir(duende):
+                if jugador.huir(enemigo):
                     return False
                 else:
-                    duende.atacar(jugador)
+                    enemigo.atacar(jugador)
                     return True
             elif respuesta == 3:
                 jugador.inventario(jugador)

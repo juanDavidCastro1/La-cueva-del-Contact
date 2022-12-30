@@ -17,4 +17,3 @@ class Enemigo():
     
 
 #NPCS y Enemigos
-duende = Enemigo("Duende", 50, 6, 4, 5)

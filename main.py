@@ -11,6 +11,7 @@ if __name__ == "__main__":
 
     #Personaje
     jugador = Jugador(nombre)
+    duende = Enemigo("Duende", 50, 6, 4, 5)
 
     print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?\n")
     
@@ -19,5 +20,5 @@ if __name__ == "__main__":
     #Bucle del menu de opciones
     while activo:
 
-        activo = cursor_del_juego(jugador)
+        activo = batalla_jugado_enemigo(jugador, duende)
 
