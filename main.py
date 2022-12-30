@@ -19,5 +19,5 @@ if __name__ == "__main__":
     #Bucle del menu de opciones
     while activo:
 
-        activo = curso_del_juego(jugador)
+        activo = cursor_del_juego(jugador)
 

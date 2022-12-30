@@ -1,7 +1,7 @@
 from .Personajes.jugador import *
 from .Personajes.enemigos import *
 
-def curso_del_juego(jugador):
+def cursor_del_juego(jugador):
     
     #Comprobando si tiene arma equipada
         try:
