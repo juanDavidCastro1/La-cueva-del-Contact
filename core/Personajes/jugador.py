@@ -28,13 +28,16 @@ class Jugador():
     #Ataque del jugador
     def atacar(self, enemigo, jugador):
 
-        #Calculando probabilidad de escape
+        #Calculando probabilidad de ataque
         probabilidad_ataque_jugador = random.randint(1,10)
         probabilidad_ataque_enemigo = random.randint(1, enemigo.probabilidad_de_ataque)
 
         #Conparando las probabilidades
         if probabilidad_ataque_jugador > probabilidad_ataque_enemigo:
-            print("Atacaste!!")
+            
+            #if self.arma_actual != None:
+
+
             try:
                 enemigo.vida = enemigo.vida - (self.ataque + self.arma_actual.daño_base)
             except:
