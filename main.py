@@ -11,13 +11,13 @@ if __name__ == "__main__":
 
     #Personaje
     jugador = Jugador(nombre)
-    duende = Enemigo("Duende", 50, 6, 4, 5)
+    slime = Enemigo("Slime", 50, 6, 4, 5)
 
-    print(f"Ha aparecido un {duende.nombre}. {jugador.nombre}, que deseas hacer?\n")
+    print(f"Ha aparecido un {slime.nombre} (vida:{slime.vida} | ataque:{slime.ataque}). {jugador.nombre}, que deseas hacer?\n")
     
     activo = True
     
     #Bucle del menu de opciones
     while activo:
-        activo = batalla_jugador_enemigo(jugador, duende)
+        activo = batalla_jugador_enemigo(jugador, slime)
 

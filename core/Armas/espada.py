@@ -3,6 +3,7 @@ class Espada():
     def __init__(self, nombre, daño_base):
         self.nombre = nombre
         self.daño_base = daño_base
+        self.movimiento = None
 
 class Espada_de_hielo(Espada):
     def __init__(self, nombre, daño_base, movimiento):

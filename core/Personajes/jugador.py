@@ -17,10 +17,11 @@ class Jugador():
         global inventario
         inventario = {
             "armas": [
-
+                espada_de_fuego,
+                espada_basica
             ],
             "pociones":[
-                
+                pocima_basica
             ]
         }
 
@@ -37,8 +38,12 @@ class Jugador():
             try:
                 enemigo.vida = enemigo.vida - (self.ataque + self.arma_actual.daño_base)
             except:
-                enemigo.vida = enemigo.vida - self.ataque 
-            return print(f"La vida restante del {enemigo.nombre} es {enemigo.vida}\n")
+                enemigo.vida = enemigo.vida - self.ataque
+
+            if enemigo.vida <= 0:
+                print(f"El {enemigo.nombre} ha muerto")
+            else:
+                print(f"La vida restante del {enemigo.nombre} es {enemigo.vida}\n")
         else:
             print("Fallaste!!")
             print(f"El {enemigo.nombre} ataco!!")
@@ -85,7 +90,11 @@ class Jugador():
                     armas = ""
                     for armas in inventario["armas"]:
                         contador = contador + 1
-                        print(f"{contador}-{armas.nombre}")
+                        if armas.movimiento == None:
+                            armas.movimiento = "No tiene movimiento"
+                        else:
+                            pass
+                        print(f"{contador}-{armas.nombre} (ataque: {armas.daño_base} | movimiento especial: {armas.movimiento})\n")
 
                     if armas == "":
                         print("No tiene armas en el inventario")
@@ -95,12 +104,15 @@ class Jugador():
 
                             #Elegiendo arma
                             try:
+                                print(f"Para salir escriba: {contador + 1}")
                                 arma_elegida = int(input("Eliga un arma: "))
                             except:
                                 arma_elegida = str
                                 
                             if type(arma_elegida) == int and arma_elegida <= contador:
                                 self.arma_actual = armas
+                                break
+                            elif arma_elegida == contador + 1:
                                 break
                             else:
                                 print("Opcion no valida")
@@ -121,7 +133,7 @@ class Jugador():
                         #Bucle secundario en el menu del inventario
                         while True:
 
-                            #Elegiendo arma
+                            #Elegiendo pociones
                             try:
                                 print(f"Para salir escriba: {contador + 1}")
                                 pocion_elegida = int(input("Eliga una pocion: "))
