@@ -110,7 +110,7 @@ class Jugador():
                                 arma_elegida = str
                                 
                             if type(arma_elegida) == int and arma_elegida <= contador:
-                                self.arma_actual = armas
+                                self.arma_actual = inventario["armas"][arma_elegida - 1]
                                 break
                             elif arma_elegida == contador + 1:
                                 break
