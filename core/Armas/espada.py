@@ -9,9 +9,8 @@ class Espada_de_hielo(Espada):
     def __init__(self, nombre, daño_base):
         super().__init__(nombre, daño_base)
         self.movimientos = [
-            {"nombre": self.congelar.__name__, 
-            "metodo": self.congelar
-            }
+            [self.congelar.__name__],
+            [self.congelar]
         ]
     
     def congelar(self):
@@ -22,13 +21,12 @@ class Espada_de_fuego(Espada):
     def __init__(self, nombre, daño_base):
         super().__init__(nombre, daño_base)
         self.movimientos = [
-            {"nombre": self.quemar.__name__, 
-            "metodo": self.quemar
-            }
+            [self.quemar.__name__],
+            [self.quemar]
         ]
     
     def quemar(self):
-        self.daño_base = self.daño_base + 20
+        self.daño_base = self.daño_base + 5
         return self.daño_base
 
 

@@ -42,10 +42,11 @@ class Jugador():
                     
                     contador = 0
 
-                    for movimiento in self.arma_actual.movimientos:
+                    
+                    for movimiento in self.arma_actual.movimientos[0]:
                         contador = contador + 1
-                        print(f"{contador} - {movimiento}\n")
-
+                        print("{0} - {1}\n".format(contador, movimiento))
+                
                     while True:
 
                             #Elegiendo movimiento arma
@@ -56,8 +57,8 @@ class Jugador():
                                 movimiento_elegido = str
                                 
                             if type(movimiento_elegido) == int and movimiento_elegido <= contador:
-                                print(self.arma_actual.movimientos[movimiento_elegido - 1])
-                                print(self.arma_actual)
+                                self.arma_actual.movimientos[1][contador - 1]
+                                enemigo.vida = enemigo.vida - self.arma_actual.daño_base
                                 break
                             elif movimiento_elegido == contador + 1:
                                 break
@@ -127,7 +128,7 @@ class Jugador():
                             pass
                         
                         if type(armas.movimientos) == list:
-                            print("{0}-{1} (ataque: {2} | movimiento especial: {3})\n".format(contador, armas.nombre, armas.daño_base, armas.movimientos[0]["nombre"]))
+                            print("{0}-{1} (ataque: {2} | movimiento especial: {3})\n".format(contador, armas.nombre, armas.daño_base, armas.movimientos[0][0]))
                         else:
                             print("{0}-{1} (ataque: {2} | movimiento especial: {3})\n".format(contador, armas.nombre, armas.daño_base, armas.movimientos))
 
