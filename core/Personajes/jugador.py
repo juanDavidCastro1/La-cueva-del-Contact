@@ -17,11 +17,10 @@ class Jugador():
         global inventario
         inventario = {
             "armas": [
-                espada_de_fuego,
-                espada_basica
+                
             ],
             "pociones":[
-                pocima_basica
+
             ]
         }
 
