@@ -17,7 +17,9 @@ class Jugador():
         global inventario
         inventario = {
             "armas": [
-                
+                espada_de_hielo,
+                espada_basica,
+                espada_de_fuego
             ],
             "pociones":[
 
@@ -34,13 +36,40 @@ class Jugador():
         #Conparando las probabilidades
         if probabilidad_ataque_jugador > probabilidad_ataque_enemigo:
             
-            #if self.arma_actual != None:
+            if self.arma_actual != None:
 
+                if self.arma_actual.movimientos != None and self.arma_actual.movimientos != "No tiene movimiento":
+                    
+                    contador = 0
 
-            try:
-                enemigo.vida = enemigo.vida - (self.ataque + self.arma_actual.daño_base)
-            except:
+                    for movimiento in self.arma_actual.movimientos:
+                        contador = contador + 1
+                        print(f"{contador} - {movimiento}\n")
+
+                    while True:
+
+                            #Elegiendo movimiento arma
+                            try:
+                                print(f"Para salir escriba: {contador + 1}")
+                                movimiento_elegido = int(input("Eliga un movimiento: "))
+                            except:
+                                movimiento_elegido = str
+                                
+                            if type(movimiento_elegido) == int and movimiento_elegido <= contador:
+                                print(self.arma_actual.movimientos[movimiento_elegido - 1])
+                                print(self.arma_actual)
+                                break
+                            elif movimiento_elegido == contador + 1:
+                                break
+                            else:
+                                print("Opcion no valida")
+
+                        
+                else:
+                    enemigo.vida = enemigo.vida - self.arma_actual.daño_base
+            else:
                 enemigo.vida = enemigo.vida - self.ataque
+                
 
             if enemigo.vida <= 0:
                 print(f"El {enemigo.nombre} ha muerto")
@@ -92,11 +121,16 @@ class Jugador():
                     armas = ""
                     for armas in inventario["armas"]:
                         contador = contador + 1
-                        if armas.movimiento == None:
-                            armas.movimiento = "No tiene movimiento"
+                        if armas.movimientos == None:
+                            armas.movimientos = "No tiene movimiento"
                         else:
                             pass
-                        print(f"{contador}-{armas.nombre} (ataque: {armas.daño_base} | movimiento especial: {armas.movimiento})\n")
+                        
+                        if type(armas.movimientos) == list:
+                            print("{0}-{1} (ataque: {2} | movimiento especial: {3})\n".format(contador, armas.nombre, armas.daño_base, armas.movimientos[0]["nombre"]))
+                        else:
+                            print("{0}-{1} (ataque: {2} | movimiento especial: {3})\n".format(contador, armas.nombre, armas.daño_base, armas.movimientos))
+
 
                     if armas == "":
                         print("No tiene armas en el inventario")
