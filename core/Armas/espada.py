@@ -15,6 +15,7 @@ class Espada_de_hielo(Espada):
     
     def congelar(self):
         self.daño_base = self.daño_base + 20
+        return self.daño_base
 
 
 class Espada_de_fuego(Espada):
@@ -26,7 +27,7 @@ class Espada_de_fuego(Espada):
         ]
     
     def quemar(self):
-        self.daño_base = self.daño_base + 5
+        self.daño_base = self.daño_base + 20
         return self.daño_base
 
 

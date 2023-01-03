@@ -51,16 +51,21 @@ class Jugador():
 
                             #Elegiendo movimiento arma
                             try:
-                                print(f"Para salir escriba: {contador + 1}")
+                                print(f"Para ataque normal escriba: {contador + 1}")
+                                print(f"Para salir escriba: {contador + 2}")
                                 movimiento_elegido = int(input("Eliga un movimiento: "))
                             except:
                                 movimiento_elegido = str
                                 
                             if type(movimiento_elegido) == int and movimiento_elegido <= contador:
-                                self.arma_actual.movimientos[1][contador - 1]
+                                self.arma_actual.movimientos[1][contador - 1]()
                                 enemigo.vida = enemigo.vida - self.arma_actual.daño_base
                                 break
                             elif movimiento_elegido == contador + 1:
+                                enemigo.vida = enemigo.vida - self.arma_actual.daño_base
+                                break
+                                
+                            elif movimiento_elegido == contador + 2:
                                 break
                             else:
                                 print("Opcion no valida")
